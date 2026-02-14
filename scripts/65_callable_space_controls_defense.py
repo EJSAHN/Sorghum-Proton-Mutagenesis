@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Sorghum callable-space controls for GBS-derived induced SNV analyses (v1.1).
+Sorghum callable-space controls for GBS-derived induced SNV analyses.
 
 This script provides quantitative controls addressing common concerns in reduced-representation datasets:
 1) Callable-space QC (per-sample callable loci and missingness) using Table S4 genotype calls
@@ -725,7 +725,7 @@ def fig_enrichment_bar(enr: pd.DataFrame, out_base: Path):
 # -----------------------------
 
 def main():
-    ap = argparse.ArgumentParser(description="Callable-space controls for induced SNV analyses (GBS panel) v1.1.")
+    ap = argparse.ArgumentParser(description="Callable-space controls for induced SNV analyses (GBS panel).")
     ap.add_argument("--events", required=True, type=str, help="Path to events_long.csv(.gz)")
     ap.add_argument("--meta", required=True, type=str, help="Path to metadata CSV or Excel (S1_Sample_Metadata)")
     ap.add_argument("--s4", required=True, type=str, help="Path to Table S4.xlsx")
@@ -809,3 +809,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
