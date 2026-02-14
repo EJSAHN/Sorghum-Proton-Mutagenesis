@@ -1,12 +1,11 @@
 # Sorghum Mutant (Proton vs Gamma) – Reproducible Tables-Only Pipeline
 
 This package regenerates the **tables / supplementary master workbook** for the Sorghum proton-beam vs gamma-ray mutagenesis manuscript.  
-**Figures are optional and disabled by default** (per your request).
-
-## Folder layout (expected)
+ 
+## Folder layout
 
 ```text
-Sorghum_Mutant_Publication_2025_2/
+Sorghum_Proton_Mutagenesis/
   scripts/
     00_run_pipeline_tables_only.py
     10_radclock_pipeline_tables.py
@@ -26,9 +25,9 @@ Sorghum_Mutant_Publication_2025_2/
     Table S4.xlsx
     SbicolorRio_468_v2.1.gene.gff3.gz
     SbicolorRio_468_v2.1.repeatmasked_assembly_v2.0.gff3.gz
-  outputs_radclock/                (auto-created)
-  outputs_functional_shielding/    (auto-created)
-  outputs/                         (auto-created)
+  outputs_radclock/                
+  outputs_functional_shielding/    
+  outputs/                         
 Input filename tolerance
 Some labs use underscores (Table_S4.xlsx) instead of spaces (Table S4.xlsx).
 This pipeline auto-detects common variants.
