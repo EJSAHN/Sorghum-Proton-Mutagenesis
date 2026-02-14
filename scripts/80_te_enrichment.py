@@ -2,9 +2,9 @@
 """
 80_te_enrichment.py
 
-TE enrichment analysis (RAW-PROVEN mask logic, tables-only).
+TE enrichment analysis (Mask-based logic, tables-only).
 
-Legacy logic:
+Methodology:
 - Parse repeatmasked GFF3 -> TE intervals per chromosome (chr1-10).
 - Build boolean TE mask per chromosome (length = max(TE_end, max_event_pos) + 1000).
 - TE fraction per chromosome = sum(mask)/len(mask), then averaged across chromosomes (unweighted mean).
@@ -197,7 +197,7 @@ def main() -> None:
         raise RuntimeError("No events remain after filtering to chr1-10. Check contig normalization.")
 
     print(f"[INFO] Parsing repeatmasked GFF: {repeat_gff}")
-    te_intervals = parse_te_gff(Path(repeat_gff), debug=True)
+    te_intervals = parse_te_gff(Path(repeat_gff), debug=False)
     if not te_intervals:
         raise RuntimeError("Parsed 0 TE intervals on chr1-10. Seqid mapping failing (see DEBUG lines above).")
 
