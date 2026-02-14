@@ -1,7 +1,7 @@
 # Sorghum Mutant (Proton vs Gamma) – Reproducible Tables-Only Pipeline
 
-This package regenerates the **tables / supplementary master workbook** for the Sorghum proton-beam vs gamma-ray mutagenesis manuscript.  
- 
+This package regenerates the tables / supplementary master workbook for the Sorghum proton-beam vs gamma-ray mutagenesis manuscript.
+
 ## Folder layout
 
 ```text
@@ -25,9 +25,9 @@ Sorghum_Proton_Mutagenesis/
     Table S4.xlsx
     SbicolorRio_468_v2.1.gene.gff3.gz
     SbicolorRio_468_v2.1.repeatmasked_assembly_v2.0.gff3.gz
-  outputs_radclock/                
-  outputs_functional_shielding/    
-  outputs/                         
+  outputs_radclock/
+  outputs_functional_shielding/
+  outputs/
 Input filename tolerance
 Some labs use underscores (Table_S4.xlsx) instead of spaces (Table S4.xlsx).
 This pipeline auto-detects common variants.
@@ -50,7 +50,7 @@ Per-step CSV tables in outputs_radclock/tables/ and outputs_functional_shielding
 
 Final master workbook: outputs/Supplementary_Data_Master_REGENERATED.xlsx
 
-Optional: also compute “by dose” shielding table (S6)
+Optional: compute “by dose” shielding table (S6)
 python scripts/00_run_pipeline_tables_only.py --include-shielding-by-dose
 Troubleshooting
 If you see “Required input file not found”, check that your files are in inputs/ and match one of the expected names.
