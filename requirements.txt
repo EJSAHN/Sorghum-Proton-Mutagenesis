@@ -3,5 +3,3 @@ pandas
 openpyxl
 scipy
 tqdm
-matplotlib
-seaborn
