@@ -41,8 +41,8 @@ This regenerates the main event calls, spatial summaries, functional annotations
 Main outputs:
 
 ```text
-outputs_radclock/tables/
-outputs_functional_shielding/tables/
+outputs_event_burden/tables/
+outputs_feature_enrichment/tables/
 outputs/Supplementary_Data_Master_REGENERATED.xlsx
 ```
 
@@ -60,7 +60,7 @@ This writes a single validation workbook:
 outputs_validation/Spatial_Validation_Tables.xlsx
 ```
 
-The workbook includes gamma high-load comparisons, callable-density-normalized spatial summaries, callable-density-weighted spatial null analyses, track-definition sensitivity analyses, gamma dose-response regression parameters, and coding-region fraction models with radiation type terms.
+The workbook includes gamma high-load comparisons, callable-density-normalized spatial summaries, callable-density-weighted spatial null analyses, track-definition sensitivity analyses, gamma dose-response regression parameters and coding-region fraction models with radiation type terms.
 
 ## Optional robustness tables
 
@@ -68,14 +68,14 @@ The following scripts generate additional table-only robustness outputs and can 
 
 ```bash
 python scripts/25_cluster_sensitivity_recurrent_filter.py \
-  --events outputs_radclock/tables/events_long.csv.gz \
+  --events outputs_event_burden/tables/events_long.csv.gz \
   --outdir outputs_robustness/cluster_sensitivity
 ```
 
 ```bash
 python scripts/65_callable_space_controls.py \
-  --events outputs_radclock/tables/events_long.csv.gz \
-  --meta outputs_radclock/tables/mutants_metadata.csv \
+  --events outputs_event_burden/tables/events_long.csv.gz \
+  --meta outputs_event_burden/tables/mutants_metadata.csv \
   --s4 "inputs/Table S4.xlsx" \
   --gene_gff inputs/SbicolorRio_468_v2.1.gene.gff3.gz \
   --repeat_gff inputs/SbicolorRio_468_v2.1.repeatmasked_assembly_v2.0.gff3.gz \
@@ -88,22 +88,27 @@ On Windows Anaconda Prompt, use the same commands on one line or replace the lin
 
 ```text
 scripts/00_run_pipeline_tables_only.py        Run the core table-generation workflow
-scripts/10_radclock_pipeline_tables.py       Build induced event calls and mutation spectra tables
+scripts/10_event_burden_and_signatures.py    Build induced event calls and mutation spectra tables
 scripts/20_spatial_stats_1mb.py              Compute 1-Mb spatial statistics
 scripts/25_cluster_sensitivity_recurrent_filter.py
                                              Recurrent-locus filtering sensitivity tables
 scripts/30_track_calling_500kb.py            Call high-density mutation windows
 scripts/40_mbs_statistics.py                 Multi-base substitution summary tables
 scripts/50_annotate_events_functional.py     Annotate induced events with genomic features
-scripts/60_shielding_corrected_callable_space.py
+scripts/60_callable_feature_enrichment.py
                                              Callable-space-corrected feature enrichment
-scripts/61_shielding_by_dose_optional.py     Optional dose-stratified feature enrichment
+scripts/61_callable_feature_enrichment_by_dose_optional.py
+                                             Optional dose-stratified feature enrichment
 scripts/65_callable_space_controls.py        Callable-space QC and denominator tables
 scripts/70_cds_load_relationship.py          CDS-fraction versus mutation-load summary tables
 scripts/80_te_enrichment.py                  TE-overlap enrichment summary tables
 scripts/90_build_supplementary_master.py     Build regenerated supplementary master workbook
 scripts/95_spatial_validation_tables.py      Additional spatial validation workbook
 ```
+
+## Terminology
+
+Script and output names use neutral terminology consistent with the revised manuscript. The pipeline reports event-burden summaries, callable-space feature enrichment, TE-overlap enrichment, and CDS-load relationships without assuming untested biological mechanisms.
 
 ## Output policy
 
