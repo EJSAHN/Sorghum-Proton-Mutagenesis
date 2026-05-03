@@ -27,11 +27,6 @@ Outputs
 tables/
   recurrent_locus_counts.csv
   cluster_fraction_sensitivity.csv
-
-Notes
------
-- No hard-coded paths.
-- This script writes tabular outputs only.
 """
 
 from __future__ import annotations
